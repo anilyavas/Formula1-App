@@ -1,20 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View, SafeAreaView } from 'react-native';
+import racesResponse from './assets/data/races.json';
+import { RaceListItem } from './components/RaceListItem';
+
+const races = racesResponse.data.races.response;
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={races}
+        renderItem={({ item }) => <RaceListItem item={item} />}
+      />
       <StatusBar style='auto' />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: 'whitesmoke',
   },
 });
