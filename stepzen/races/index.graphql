@@ -1,0 +1,33 @@
+type Errors {
+  token: String
+}
+
+type Paging {
+  current: Int
+  total: Int
+}
+
+type Parameters {
+  season: Int
+  type: String
+}
+
+type Race {
+  errors: Errors
+  get: String
+  paging: Paging
+  parameters: Parameters
+  response: [JSON]
+  results: Int
+}
+
+type Query {
+  races(season: String, type: String): Race
+    @rest(
+      endpoint: "https://v1.formula-1.api-sports.io/races"
+      headers: [
+        { name: "x-rapidapi-host", value: "v1.formula-1.api-sports.io" }
+        { name: "x-rapidapi-key", value: "<37d3382e9a83aa68cca2b69a2b0012ad" }
+      ]
+    )
+}
