@@ -17,12 +17,13 @@ export default function App() {
       <Stack.Screen
         options={{
           title: 'RACING',
-          headerTitleStyle: { fontFamily: 'F1-Black', color: 'white' },
         }}
       />
       <FlatList
         data={races}
-        renderItem={({ item }) => <RaceListItem item={item} />}
+        renderItem={({ item, index }) => (
+          <RaceListItem item={item} round={index + 1} />
+        )}
       />
       <StatusBar style='auto' />
     </SafeAreaView>

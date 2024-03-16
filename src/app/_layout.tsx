@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { Colors } from '../Constants/colors';
 import { useFonts } from 'expo-font';
 import { ActivityIndicator } from 'react-native';
+import dayjs from 'dayjs';
 
 const RootLayout = () => {
   const [fontsLoaded] = useFonts({
@@ -18,7 +19,10 @@ const RootLayout = () => {
 
   return (
     <Stack
-      screenOptions={{ headerStyle: { backgroundColor: Colors.primary } }}
+      screenOptions={{
+        headerStyle: { backgroundColor: Colors.primary },
+        headerTitleStyle: { fontFamily: 'F1-Black', color: 'white' },
+      }}
     ></Stack>
   );
 };

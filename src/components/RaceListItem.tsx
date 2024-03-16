@@ -6,17 +6,26 @@ import { Colors } from '../Constants/colors';
 
 const races = racesResponse.data.races.response;
 
-export const RaceListItem = ({ item }: { item: (typeof races)[0] }) => {
+export const RaceListItem = ({
+  item,
+  round,
+}: {
+  item: (typeof races)[0];
+  round: number;
+}) => {
   return (
     <View style={styles.itemContainer}>
       <View style={styles.dateContainer}>
-        <Text style={styles.date}>{dayjs(item.date).format('DD')}-26</Text>
+        <Text style={styles.date}>
+          {dayjs(item.date).subtract(2, 'days').format('DD')}-
+          {dayjs(item.date).format('DD')}
+        </Text>
         <Text style={styles.month}>
           {dayjs(item.date).format('MMM').toUpperCase()}
         </Text>
       </View>
       <View style={styles.raceInfo}>
-        <Text style={styles.round}>Round {item.competition.id}</Text>
+        <Text style={styles.round}>Round {round}</Text>
         <Text style={styles.country}>{item.competition.location.country}</Text>
         <Text style={styles.name}>{item.competition.name}</Text>
       </View>
