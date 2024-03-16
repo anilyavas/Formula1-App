@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { FlatList, StyleSheet, Text, View, SafeAreaView } from 'react-native';
-import racesResponse from './assets/data/races.json';
-import { RaceListItem } from './components/RaceListItem';
+import { FlatList, StyleSheet, SafeAreaView } from 'react-native';
+import racesResponse from '../../assets/data/races.json';
+import { RaceListItem } from '../components/RaceListItem';
 
 const races = racesResponse.data.races.response;
 

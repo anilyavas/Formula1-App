@@ -1,8 +1,8 @@
 import { Text, View, StyleSheet } from 'react-native';
-import racesResponse from '../assets/data/races.json';
+import racesResponse from '../../assets/data/races.json';
 import dayjs from 'dayjs';
 import { Entypo } from '@expo/vector-icons';
-import { Colors } from '../src/Constants/colors';
+import { Colors } from '../Constants/colors';
 
 const races = racesResponse.data.races.response;
 
