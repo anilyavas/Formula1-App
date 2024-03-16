@@ -27,7 +27,9 @@ export const RaceListItem = ({
       <View style={styles.raceInfo}>
         <Text style={styles.round}>Round {round}</Text>
         <Text style={styles.country}>{item.competition.location.country}</Text>
-        <Text style={styles.name}>{item.competition.name}</Text>
+        <Text style={styles.name}>
+          {item.competition.name} {item.season}
+        </Text>
       </View>
       <Entypo name='chevron-right' size={24} color={Colors.primary} />
     </View>
