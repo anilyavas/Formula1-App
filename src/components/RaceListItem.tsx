@@ -52,7 +52,9 @@ const styles = StyleSheet.create({
   raceInfo: {
     flex: 1,
   },
-  date: {},
+  date: {
+    fontFamily: 'F1-Regular',
+  },
   month: {
     backgroundColor: 'gainsboro',
     paddingVertical: 3,
@@ -60,15 +62,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: 'hidden',
     color: 'dimgrey',
-    fontWeight: 'bold',
     marginTop: 5,
+    fontFamily: 'F1-Bold',
   },
   round: {
     color: Colors.primary,
+    fontFamily: 'F1-Regular',
   },
   country: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontFamily: 'F1-Bold',
+    marginVertical: 7,
   },
   name: {
     color: 'dimgrey',
