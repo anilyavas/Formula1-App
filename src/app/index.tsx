@@ -1,17 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import {
-  FlatList,
-  StyleSheet,
-  SafeAreaView,
-  ActivityIndicator,
-} from 'react-native';
+import { FlatList, StyleSheet, SafeAreaView } from 'react-native';
 import racesResponse from '../../assets/data/races.json';
 import { RaceListItem } from '../components/RaceListItem';
 import { Stack } from 'expo-router';
 
 const races = racesResponse.data.races.response;
 
-export default function App() {
+export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Screen
