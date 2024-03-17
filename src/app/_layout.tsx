@@ -2,6 +2,7 @@ import { Stack } from 'expo-router';
 import { Colors } from '../Constants/colors';
 import { useFonts } from 'expo-font';
 import { ActivityIndicator } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 
 const RootLayout = () => {
   const [fontsLoaded] = useFonts({
@@ -17,20 +18,23 @@ const RootLayout = () => {
   }
 
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: Colors.primary },
-        headerTitleStyle: { fontFamily: 'F1-Bold', color: 'white' },
-        headerTintColor: 'white',
-      }}
-    >
-      <Stack.Screen
-        name='index'
-        options={{
-          title: 'RACING',
+    <>
+      <Stack
+        screenOptions={{
+          headerStyle: { backgroundColor: Colors.primary },
+          headerTitleStyle: { fontFamily: 'F1-Bold', color: 'white' },
+          headerTintColor: 'white',
         }}
-      />
-    </Stack>
+      >
+        <Stack.Screen
+          name='index'
+          options={{
+            title: 'RACING',
+          }}
+        />
+      </Stack>
+      <StatusBar style='light' />
+    </>
   );
 };
 
