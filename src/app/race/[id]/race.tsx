@@ -1,6 +1,6 @@
 import { ActivityIndicator, FlatList, Text } from 'react-native';
 import RankingListItem from '../../../components/RankingListItem';
-import { useLocalSearchParams } from 'expo-router';
+import { useGlobalSearchParams } from 'expo-router';
 import { useQuery, gql } from '@apollo/client';
 
 const query = gql`
@@ -23,7 +23,7 @@ const query = gql`
   }
 `;
 const RaceRankings = () => {
-  const { id } = useLocalSearchParams();
+  const { id } = useGlobalSearchParams();
   const { data, loading } = useQuery(query, {
     variables: { id: String(id) },
   });
@@ -33,6 +33,7 @@ const RaceRankings = () => {
     return <ActivityIndicator />;
   }
   const raceRankings = data?.raceRankings?.response;
+
   if (!raceRankings) {
     return <Text>Something went wrong!</Text>;
   }
