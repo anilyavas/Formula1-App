@@ -1,12 +1,40 @@
 import { useLocalSearchParams } from 'expo-router';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import raceResponse from '../../../../assets/data/race.json';
+import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { Colors } from '../../../Constants/colors';
+import { useQuery, gql } from '@apollo/client';
 
-const race = raceResponse.data.races.response[0];
-
+const query = gql`
+  query MyQuery($id: Int) {
+    races(id: $id) {
+      response {
+        id
+        date
+        season
+        circuit {
+          id
+          image
+        }
+        competition {
+          name
+          location {
+            country
+          }
+        }
+      }
+    }
+  }
+`;
 const RaceDetails = () => {
   const { id } = useLocalSearchParams();
+  const { data, loading, error } = useQuery(query, { variables: { id: id } });
+
+  if (loading) {
+    return <ActivityIndicator />;
+  }
+  if (error) {
+    return <Text>Failed to fetch data</Text>;
+  }
+  const race = data.races.response[0];
 
   return (
     <View>

@@ -10,7 +10,7 @@ import { RaceListItem } from '../components/RaceListItem';
 import { useQuery, gql } from '@apollo/client';
 
 const query = gql`
-  query MyQuery($season: String!, $type: String!) {
+  query MyQuery($season: String, $type: String) {
     races(season: $season, type: $type) {
       response {
         id
