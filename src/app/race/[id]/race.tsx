@@ -1,12 +1,15 @@
-import { View, Text } from 'react-native';
-import React from 'react';
+import { View, Text, FlatList } from 'react-native';
+import raceRankingResponse from '../../../../assets/data/race-rankings.json';
+import RankingListItem from '../../../components/RankingListItem';
 
-const race = () => {
+const raceRankings = raceRankingResponse.data.raceRankings.response;
+const RaceRankings = () => {
   return (
-    <View>
-      <Text>race</Text>
-    </View>
+    <FlatList
+      data={raceRankings}
+      renderItem={({ item }) => <RankingListItem item={item} />}
+    />
   );
 };
 
-export default race;
+export default RaceRankings;

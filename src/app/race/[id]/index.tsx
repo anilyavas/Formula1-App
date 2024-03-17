@@ -53,7 +53,9 @@ const RaceDetails = () => {
         <View style={styles.largeBoxes}>
           <Text style={styles.title}>Lap record</Text>
           <Text style={styles.subtitle}>1:17.774</Text>
-          <Text>Valtteri Bottas (2021)</Text>
+          <Text style={{ color: 'dimgrey', paddingTop: 5 }}>
+            Valtteri Bottas (2021)
+          </Text>
         </View>
       </View>
     </View>
