@@ -20,9 +20,17 @@ const RootLayout = () => {
     <Stack
       screenOptions={{
         headerStyle: { backgroundColor: Colors.primary },
-        headerTitleStyle: { fontFamily: 'F1-Black', color: 'white' },
+        headerTitleStyle: { fontFamily: 'F1-Bold', color: 'white' },
+        headerTintColor: 'white',
       }}
-    ></Stack>
+    >
+      <Stack.Screen
+        name='index'
+        options={{
+          title: 'RACING',
+        }}
+      />
+    </Stack>
   );
 };
 
