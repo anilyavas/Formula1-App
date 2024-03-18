@@ -1,12 +1,17 @@
 import { View, Text, StyleSheet, Image } from 'react-native';
-import raceRankingResponse from '../../assets/data/race-rankings.json';
+import qualyRankingResponse from '../../assets/data/qualy-rankings.json';
 
-const raceRankings = raceRankingResponse.data.raceRankings.response;
+const raceRankings = qualyRankingResponse.data.raceRankings.response;
 
 type RankingListItemProps = {
   item: (typeof raceRankings)[0];
 };
 const QualifyingListItem = ({ item }: RankingListItemProps) => {
+  const isPositive = () => {
+    if (item.position - item.grid > 0) {
+      return true;
+    }
+  };
   return (
     <View style={styles.container}>
       <Text style={styles.position}>{item.grid}</Text>
@@ -19,6 +24,11 @@ const QualifyingListItem = ({ item }: RankingListItemProps) => {
         <Text style={styles.name}>{item.driver.name}</Text>
         <Text style={styles.team}>{item.team.name}</Text>
       </View>
+      <Text
+        style={[styles.position, { color: isPositive() ? 'green' : 'red' }]}
+      >
+        {item.position - item.grid}
+      </Text>
     </View>
   );
 };
