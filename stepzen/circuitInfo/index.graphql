@@ -1,0 +1,39 @@
+type LapRecord {
+  driver: String
+  time: String
+  year: Int
+}
+
+type CircuitResponseEntry {
+  capacity: Int
+  competition: Competition
+  first_grand_prix: Int
+  id: Int
+  image: String
+  lap_record: LapRecord
+  laps: Int
+  length: String
+  name: String
+  opened: Int
+  owner: String
+  race_distance: String
+}
+
+type Circuit {
+  errors: [JSON]
+  get: String
+  parameters: [JSON]
+  response: [CircuitResponseEntry]
+  results: Int
+}
+
+type Query {
+  circuit(id: Int): Circuit
+    @rest(
+      endpoint: "https://v1.formula-1.api-sports.io/circuits"
+      headers: [
+        { name: "x-rapidapi-host", value: "v1.formula-1.api-sports.io" }
+        { name: "x-rapidapi-key", value: "37d3382e9a83aa68cca2b69a2b0012ad" }
+      ]
+    )
+}

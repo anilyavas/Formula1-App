@@ -2,6 +2,7 @@ import { useLocalSearchParams } from 'expo-router';
 import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { Colors } from '../../../Constants/colors';
 import { useQuery, gql } from '@apollo/client';
+import RaceInformations from '../../../components/RaceInformations';
 
 const query = gql`
   query MyQuery($id: Int) {
@@ -24,6 +25,7 @@ const query = gql`
     }
   }
 `;
+
 const RaceDetails = () => {
   const { id } = useLocalSearchParams();
   const { data, loading, error } = useQuery(query, { variables: { id: id } });
@@ -50,42 +52,7 @@ const RaceDetails = () => {
           resizeMode='contain'
         />
       </View>
-      <View style={styles.raceDetails}>
-        <View style={styles.largeBox}>
-          <Text style={styles.title}>Circuit lenght</Text>
-          <Text style={styles.subtitle}>
-            4303
-            <Text style={{ fontSize: 16 }}> KM</Text>
-          </Text>
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            margin: 10,
-            width: '100%',
-          }}
-        >
-          <View style={styles.smallBox}>
-            <Text style={styles.title}>No of laps</Text>
-            <Text style={styles.subtitle}>71</Text>
-          </View>
-          <View style={styles.smallBox}>
-            <Text style={styles.title}>First Grand Prix</Text>
-            <Text style={styles.subtitle}>1963</Text>
-          </View>
-        </View>
-        <View style={styles.largeBoxes}>
-          <Text style={styles.title}>Race distance</Text>
-          <Text style={styles.subtitle}>{race.distance}</Text>
-        </View>
-        <View style={styles.largeBoxes}>
-          <Text style={styles.title}>Lap record</Text>
-          <Text style={styles.subtitle}>1:17.774</Text>
-          <Text style={{ color: 'dimgrey', paddingTop: 5 }}>
-            Valtteri Bottas (2021)
-          </Text>
-        </View>
-      </View>
+      <RaceInformations />
     </View>
   );
 };
@@ -112,43 +79,5 @@ const styles = StyleSheet.create({
   circuit: {
     width: '100%',
     aspectRatio: 16 / 9,
-  },
-  raceDetails: {},
-  largeBox: {
-    margin: 10,
-    padding: 10,
-    borderTopColor: Colors.primary,
-    borderTopWidth: 5,
-    borderRadius: 10,
-    borderRightColor: Colors.primary,
-    borderRightWidth: 5,
-  },
-  smallBox: {
-    borderBottomColor: 'gainsboro',
-    borderBottomWidth: 3,
-    borderRightColor: 'gainsboro',
-    borderRightWidth: 3,
-    borderRadius: 10,
-    width: '48%',
-    padding: 10,
-  },
-  largeBoxes: {
-    margin: 10,
-    padding: 10,
-    borderBottomColor: 'gainsboro',
-    borderBottomWidth: 5,
-    borderRadius: 10,
-    borderRightColor: 'gainsboro',
-    borderRightWidth: 5,
-  },
-  title: {
-    color: 'grey',
-    fontFamily: 'F1-Regular',
-    fontSize: 14,
-    marginBottom: 5,
-  },
-  subtitle: {
-    fontFamily: 'F1-Bold',
-    fontSize: 25,
   },
 });

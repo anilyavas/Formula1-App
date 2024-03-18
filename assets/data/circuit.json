@@ -1,0 +1,37 @@
+{
+    "get": "circuits",
+    "parameters": {
+      "id": "1"
+    },
+    "data": {
+    "errors": [],
+    "results": 1,
+    "response": [
+      {
+        "id": 1,
+        "name": "Melbourne Grand Prix Circuit",
+        "image": "https://media.api-sports.io/formula-1/circuits/1.png",
+        "competition": {
+          "id": 1,
+          "name": "Australia Grand Prix",
+          "location": {
+            "country": "Australia",
+            "city": "Melbourne"
+          }
+        },
+        "first_grand_prix": 1996,
+        "laps": 58,
+        "length": "5.303 Kms",
+        "race_distance": "307.574 kms",
+        "lap_record": {
+          "time": "1:24.125",
+          "driver": "Michael Schumacher",
+          "year": "2004"
+        },
+        "capacity": 80000,
+        "opened": 1953,
+        "owner": null
+      }
+    ]
+}
+  }
