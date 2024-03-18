@@ -1,8 +1,7 @@
-import { View, Text, FlatList, ActivityIndicator } from 'react-native';
-import raceRankingResponse from '../../../../assets/data/race-rankings.json';
-import RankingListItem from '../../../components/RankingListItem';
+import { FlatList, ActivityIndicator } from 'react-native';
 import { useQuery, gql } from '@apollo/client';
 import { useGlobalSearchParams } from 'expo-router';
+import QualifyingListItem from '../../../components/QualifyingListItem';
 
 const query = gql`
   query MyQuery($id: String) {
@@ -35,7 +34,7 @@ const QualifyingScreen = () => {
   return (
     <FlatList
       data={raceRankings}
-      renderItem={({ item }) => <RankingListItem item={item} />}
+      renderItem={({ item }) => <QualifyingListItem item={item} />}
     />
   );
 };
