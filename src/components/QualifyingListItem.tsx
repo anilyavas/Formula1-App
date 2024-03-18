@@ -8,13 +8,13 @@ type RankingListItemProps = {
 };
 const QualifyingListItem = ({ item }: RankingListItemProps) => {
   const isPositive = () => {
-    if (item.position - item.grid > 0) {
+    if (item.grid - item.position >= 0) {
       return true;
     }
   };
   return (
     <View style={styles.container}>
-      <Text style={styles.position}>{item.grid}</Text>
+      <Text style={styles.position}>{item.position}</Text>
       <Image
         source={{ uri: item.driver.image }}
         style={styles.driverImage}
@@ -25,9 +25,13 @@ const QualifyingListItem = ({ item }: RankingListItemProps) => {
         <Text style={styles.team}>{item.team.name}</Text>
       </View>
       <Text
-        style={[styles.position, { color: isPositive() ? 'green' : 'red' }]}
+        style={[
+          styles.positionGained,
+          { color: isPositive() ? 'green' : 'red' },
+        ]}
       >
-        {item.position - item.grid}
+        {isPositive() ? '+' : ''}
+        {item.grid - item.position}
       </Text>
     </View>
   );
@@ -77,5 +81,11 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 12,
     fontWeight: '500',
+  },
+  positionGained: {
+    fontFamily: 'F1-Bold',
+    textAlign: 'center',
+    fontSize: 20,
+    marginRight: 10,
   },
 });
