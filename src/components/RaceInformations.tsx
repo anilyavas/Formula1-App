@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet, ActivityIndicator } from 'react-native';
-import raceDetails from '../../assets/data/circuit.json';
 import { Colors } from '../Constants/colors';
 import { useLocalSearchParams } from 'expo-router';
 import { useQuery, gql } from '@apollo/client';

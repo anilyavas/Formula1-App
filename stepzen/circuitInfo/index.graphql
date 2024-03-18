@@ -19,7 +19,7 @@ type CircuitResponseEntry {
   race_distance: String
 }
 
-type Circuit {
+type CircuitType {
   errors: [JSON]
   get: String
   parameters: [JSON]
@@ -28,7 +28,7 @@ type Circuit {
 }
 
 type Query {
-  circuit(id: Int): Circuit
+  circuit(id: Int): CircuitType
     @rest(
       endpoint: "https://v1.formula-1.api-sports.io/circuits"
       headers: [
