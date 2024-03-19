@@ -1,9 +1,10 @@
-import { Stack } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 import { Colors } from '../Constants/colors';
 import { useFonts } from 'expo-font';
-import { ActivityIndicator } from 'react-native';
+import { ActivityIndicator, Pressable, Text } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import ApolloClientProvider from '../providers/ApolloClientProvider';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const RootLayout = () => {
   const [fontsLoaded] = useFonts({
@@ -31,7 +32,37 @@ const RootLayout = () => {
           name='index'
           options={{
             title: 'RACING',
+            headerRight: () => (
+              <Link href={'../rankings'} asChild>
+                <Pressable>
+                  <MaterialCommunityIcons
+                    name='racing-helmet'
+                    size={25}
+                    color='white'
+                  />
+                </Pressable>
+              </Link>
+            ),
           }}
+        />
+        <Stack.Screen
+          name='rankings'
+          options={{
+            headerTitle: 'DRIVERS',
+            headerRight: () => (
+              <Link href={'../teamranks'} asChild>
+                <Pressable>
+                  <Text style={{ color: 'white', fontFamily: 'F1-Regular' }}>
+                    TEAMS
+                  </Text>
+                </Pressable>
+              </Link>
+            ),
+          }}
+        />
+        <Stack.Screen
+          name='teamranks'
+          options={{ headerTitle: 'CONSTRUCTORS' }}
         />
       </Stack>
       <StatusBar style='light' />
