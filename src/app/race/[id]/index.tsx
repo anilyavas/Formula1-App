@@ -1,8 +1,6 @@
 import { useLocalSearchParams } from 'expo-router';
 import { View, Text, StyleSheet, Image, ActivityIndicator } from 'react-native';
-import { Colors } from '../../../Constants/colors';
 import { useQuery, gql } from '@apollo/client';
-import RaceInformations from '../../../components/RaceInformations';
 
 const query = gql`
   query MyQuery($id: Int) {
@@ -52,7 +50,6 @@ const RaceDetails = () => {
           resizeMode='contain'
         />
       </View>
-      <RaceInformations />
     </View>
   );
 };
