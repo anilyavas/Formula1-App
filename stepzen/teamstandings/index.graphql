@@ -1,0 +1,35 @@
+type Errors {
+  endpoint: String
+}
+
+type StandingParameters {
+  season: String
+}
+type TeamStandingsResponseEntry {
+  team: StandingsTeam
+  position: Int
+  points: Int
+}
+type StandingsTeam {
+  id: Int
+  name: String
+  logo: String
+}
+type TeamStandings {
+  errors: Errors
+  get: String
+  parameters: Parameters
+  response: TeamStandingsResponseEntry
+  results: Int
+}
+
+type Query {
+  teamstandings(season: String!): TeamStandings
+    @rest(
+      endpoint: "https://v1.formula-1.api-sports.io/rankings/teams?season=2023"
+      headers: [
+        { name: "x-rapidapi-host", value: "v1.formula-1.api-sports.io" }
+        { name: "x-rapidapi-key", value: "37d3382e9a83aa68cca2b69a2b0012ad" }
+      ]
+    )
+}
