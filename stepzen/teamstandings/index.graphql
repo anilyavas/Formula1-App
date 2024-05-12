@@ -3,7 +3,7 @@ type Errors {
 }
 
 type StandingParameters {
-  season: String
+  season: Int
 }
 type TeamStandingsResponseEntry {
   team: StandingsTeam
@@ -24,7 +24,7 @@ type TeamStandings {
 }
 
 type Query {
-  teamstandings(season: String!): TeamStandings
+  teamstandings(season: Int!): TeamStandings
     @rest(
       endpoint: "https://v1.formula-1.api-sports.io/rankings/teams?season=2023"
       headers: [
